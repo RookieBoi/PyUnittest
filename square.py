@@ -10,4 +10,8 @@ class square:
         return self.length**2
 
     def getPerimeter(self):
+        if type(self.length) not in [int,float]:
+            raise ValueError("Square length should be non-negative real number")
+        if self.length < 0:
+            raise ValueError("Square length should be non-negative real number")
         return 4*self.length

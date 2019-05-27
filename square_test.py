@@ -39,5 +39,21 @@ class squareTest(unittest.TestCase):
         self.assertEqual(s2.getPerimeter(),12.0)
         s3 = square(2.2)
         self.assertEqual(s3.getPerimeter(),8.8)
+
+    def testperimeterShouldRaiseValueError(self):
+        #test getPerimeter should raise a valueerror when length is not non-negative real number
+        s1 = square(-1)
+        self.assertRaises(ValueError, s1.getPerimeter)
+        s2 = square(1j+4)
+        self.assertRaises(ValueError, s2.getPerimeter)
+        s3 = square(-0.3)
+        self.assertRaises(ValueError, s3.getPerimeter)
+    def testShouldRaiseValueErrorForNotNumber(self):
+        s1 = square(True)
+        self.assertRaises(ValueError, s1.getPerimeter)
+        s2 = square(False)
+        self.assertRaises(ValueError, s2.getPerimeter)
+        s3 = square("length")
+        self.assertRaises(ValueError, s3.getPerimeter)
 if __name__ == '__main__':
     unittest.main()
