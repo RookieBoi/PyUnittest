@@ -30,6 +30,14 @@ class squareTest(unittest.TestCase):
         self.assertRaises(ValueError, s2.getArea)
         s3 = square('length')
         self.assertRaises(ValueError, s3.getArea)
-        
+
+    def testPerimeterCorrectValue(self):
+        #test the getPerimeter function returns correct value when length is a non-negative number
+        s1 = square(1)
+        self.assertAlmostEqual(s1.getPerimeter(),4)
+        s2 = square(3.0)
+        self.assertEqual(s2.getPerimeter(),12.0)
+        s3 = square(2.2)
+        self.assertEqual(s3.getPerimeter(),8.8)
 if __name__ == '__main__':
     unittest.main()

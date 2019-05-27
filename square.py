@@ -8,6 +8,6 @@ class square:
         if self.length <0:
             raise ValueError("Square length should be non-negative real number")
         return self.length**2
-    
+
     def getPerimeter(self):
         return 4*self.length
